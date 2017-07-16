@@ -6,13 +6,21 @@ using UnityEngine;
 public class BallBehaviour : MonoBehaviour {
     public float speed = 30;
 
+    private Vector2 originalVelocity;
+    private Vector2 originalPosition;
+
     private Rigidbody2D rBod;
 
 
 	// Use this for initialization
 	void Start () {
+        originalPosition = GetComponent<Rigidbody2D>().position;
+        originalPosition = transform.position;
+        originalVelocity = Vector2.right * speed;
+
         rBod = GetComponent<Rigidbody2D>();
         rBod.velocity = Vector2.right * speed;
+
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,10 +37,17 @@ public class BallBehaviour : MonoBehaviour {
         }
         else if (collideName.Equals("LeftGoal")) {
             rBod.velocity = new Vector2(0, 0);
+            reset();
         }
         else if (collideName.Equals("RightGoal")) {
             rBod.velocity = new Vector2(0, 0);
+            reset();
         }
+    }
+
+    private void reset() {
+        GetComponent<Rigidbody2D>().position = originalPosition;
+        GetComponent<Rigidbody2D>().velocity = originalVelocity;
     }
 
     private void handlePaddleHit(Collision2D collision) {

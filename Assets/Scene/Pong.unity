@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaada890fcaefe4f8fded6d3c2c1edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 8
 --- !u!1 &441581882
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 1853530808}
   - component: {fileID: 1853530807}
   - component: {fileID: 1853530810}
+  - component: {fileID: 1853530811}
   m_Layer: 0
   m_Name: RightPlayer
   m_TagString: Untagged
@@ -771,6 +772,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.15}
   m_EdgeRadius: 0
+--- !u!114 &1853530811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853530806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebd03ec156918e4896441405b1be29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
 --- !u!1 &1885188282
 GameObject:
   m_ObjectHideFlags: 0
