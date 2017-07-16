@@ -18,10 +18,7 @@ public class BallBehaviour : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string collideName = collision.gameObject.name;
-        if (collideName.Equals("LeftPlayer")) {
-            handlePaddleHit(collision);
-        }
-        else if (collideName.Equals("RightPlayer")) {
+        if (collideName.Contains("Player")) {
             handlePaddleHit(collision);
         }
         else if (collideName.Equals("Top")) {
