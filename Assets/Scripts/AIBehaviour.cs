@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class AIBehaviour : MonoBehaviour {
     public float speed = 30;
+    public float wiggleRoom = 0.0f;
+    public BallBehaviour pong;
     void FixedUpdate() {
-        GameObject pong = GameObject.Find("Pong");
         if (pong != null) {
             Vector2 pongPos = pong.GetComponent<Rigidbody2D>().position;
             float paddleDir = getDirection(GetComponent<Rigidbody2D>().position, pongPos);
@@ -15,10 +16,10 @@ public class AIBehaviour : MonoBehaviour {
     }
 
     private float getDirection(Vector2 myVec, Vector2 pongVec) {
-        if(pongVec.y > myVec.y) {
+        if(pongVec.y - myVec.y > wiggleRoom) {
             return 1;
         }
-        else if (pongVec.y < myVec.y) {
+        else if (pongVec.y - myVec.y < -wiggleRoom) {
             return -1;
         }
         else {

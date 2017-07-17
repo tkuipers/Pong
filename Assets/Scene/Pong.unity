@@ -783,7 +783,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebd03ec156918e4896441405b1be29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
+  wiggleRoom: 0.05
+  pong: {fileID: 244797313}
 --- !u!1 &1885188282
 GameObject:
   m_ObjectHideFlags: 0
