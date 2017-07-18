@@ -6,11 +6,15 @@ using System.Collections;
 
 public class BallTest {
     private GameObject pong;
+    private BallBehaviour b;
 
     [SetUp]
     public void Init() {
         pong = GameObject.Find("Pong");
+        pong.AddComponent(typeof(BallBehaviour);
+        
     }
+
     [Test]
     public void BallHasCorrectName() {
         Assert.AreEqual("Pong", pong.name);
@@ -26,12 +30,11 @@ public class BallTest {
         Assert.AreEqual(new Vector2(0, 0), pong.GetComponent<Rigidbody2D>().velocity);
     }
 
-    // A UnityTest behaves like a coroutine in PlayMode
-    // and allows you to yield null to skip a frame in EditMode
-    [UnityTest]
-	public IEnumerator BallTestWithEnumeratorPasses() {
-		// Use the Assert class to test conditions.
-		// yield to skip a frame
-		yield return null;
-	}
+    [Test]
+    public void BallGetsResetUponHittingGoal() {
+        Collision2D col = new Collision2D();
+        pong.GetComponent<Rigidbody2D>().position = new Vector2(2, 2);
+        b.OnCollisionEnter2D(col);
+        Assert.AreEqual(new Vector2(0, 0), pong.GetComponent<Rigidbody2D>().position);
+    }
 }

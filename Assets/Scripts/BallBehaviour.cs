@@ -23,7 +23,7 @@ public class BallBehaviour : MonoBehaviour {
 
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         string collideName = collision.gameObject.name;
         if (collideName.Contains("Player")) {
